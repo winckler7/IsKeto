@@ -1,0 +1,42 @@
+{%extends "layout.html"%}
+
+{%block title%}Request Food{%endblock%}
+
+{%block main%}
+<div class="rh-header_container">
+    <h1 class="rh-header">Request Food</h1>
+</div>
+
+<form class="requestfood" action="/requestfood" method="POST">
+
+    <div class="input-container">
+        <label>Food requested:</label>
+        <input autocomplete="off" type="text" placeholder="Tomato" name="food_requested" required>
+    </div>
+
+    <div class="input-container">
+        <label>Food Description:</label>
+        <input autocomplete="off" type="text" placeholder="Red fruit cultivated in the countryside" name="food_description" required>
+    </div>
+
+    <div class="input-container">
+        <label>Your Name:</label>
+        <input autocomplete="off" type="text" placeholder="Saul Perez" name="person_name" required>
+    </div>
+
+    <div class="input-container">
+        <label>Email:</label>
+        <input autocomplete="off" type="email" placeholder="example@example.com" name="person_email" required>
+    </div>
+
+    <div class="warning-container">
+        <p>*Before submitting remember we do not upload dishes, since one ingredient can be keto and other may not be.</p>
+    </div>
+
+    <div class="submit-container">
+        <input type="submit" class="submit-button">
+    </div>
+
+</form>
+
+{%endblock%}

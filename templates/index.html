@@ -1,0 +1,70 @@
+{%extends "layout.html"%}
+
+    {%block title%}
+    Search
+    {%endblock%}
+
+    {%block main%}
+    <div>
+
+            <form id="search_food" action="/" method="POST">
+                <div id="is__keto">
+                    <div class="is-container">
+                        <img src="static/media/is.svg" alt="is">
+                    </div>
+                    <div id="searchBar">
+                        <input autocomplete="off" type="text" placeholder="Search Food" name="food">
+                    </div>
+                    <div class="keto-container">
+                        <img src="static/media/ketoQ.svg" alt="keto?">
+                    </div>
+                </div>
+                <div class="suggestions-container">
+                    <ul id="suggestions"></ul>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+
+        //Shows suggestions when keyboard is clicked
+
+        let input = document.querySelector("input");
+        input.addEventListener("input", async function () {
+            let response = await fetch('/search?food=' + input.value) // Use '/search?food=' instead of '/searchq='
+            let foods = await response.text()
+            document.querySelector('ul').innerHTML = foods
+        });
+
+        //Clicking a suggestion sends it as POST
+
+        document.querySelector('ul').addEventListener('click', function(event) {
+        if (event.target && event.target.nodeName == 'LI') {
+            // Extract the food name
+            const foodName = event.target.getAttribute('data-food-name');
+
+            // Creates form
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/';
+
+            // input element for the food name
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'food';
+            input.value = foodName;
+
+            form.appendChild(input);
+
+            // Append form and submit
+            document.body.appendChild(form);
+            form.submit();
+            }
+        });
+
+
+
+    </script>
+    {%endblock%}

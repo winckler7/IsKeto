@@ -1,0 +1,54 @@
+{%extends "layout.html"%}
+
+    {%block title%}
+    {{food_name}}
+    {%endblock%}
+
+    {%block main%}
+    <div id="titleandimg">
+
+        <!--Food Title-->
+        <div id="food-title">
+            <h1>{{food_name}} | {{ketoStatus}}</h1>
+            <div class="line"></div>
+            <div >
+                <br>
+                <p>{{NutriInfo[0]["description"]}}</p>
+                <br>
+                <p>{{whyKeto}}</p>
+            </div>
+        </div>
+
+        <!--Food Image-->
+        <div id="img-container">
+            <img src="{{NutriInfo[0]['img_url']}}" alt="food-search">
+        </div>
+
+    </div>
+
+
+    <!--Nutritional Info-->
+    <div id="NutriInfo-container">
+        <div id="NutriInfo-title">
+            <h2>Nutritional Info (Aproximate per 100g serving):</h2>
+        </div>
+
+        <h3>{{NutriInfo[0]["calories"]}} Calories per serving.</h3>
+        
+        <div id="NutriInfo-elements">
+            <div class="label-data">
+                <label>Protein</label>
+                <label>{{NutriInfo[0]['protein']}} grams.</label>
+            </div>
+            <div class="label-data">
+                <label>Fats</label>
+                <label>{{NutriInfo[0]['fat']}} grams.</label>
+            </div>
+            <div class="label-data">
+                <label>Carbs</label>
+                <label>{{NutriInfo[0]['carbs']}} grams.</label>
+            </div>
+        </div>
+    </div>
+
+    {%endblock%}

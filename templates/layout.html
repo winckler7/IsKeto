@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="static/styles.css">
+        <title>IsKeto: {% block title %} {% endblock %}</title>
+    </head>
+    <body>
+        <div id="container">
+
+            <nav>
+                <div>
+                    <a href="/"><img src="static/media/IsKeto.svg" alt="Logo"></a>
+                </div>
+                <div class="nav-pages">
+                    <div><a href="/keto">What is Keto?</a></div>
+                    <div><a href="/requestfood">Request food</a></div>
+                </div>
+            </nav>
+            <main>
+                {% block main %}
+                {% endblock %}
+            </main>
+
+        </div>
+    </body>
+</html>

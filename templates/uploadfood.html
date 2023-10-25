@@ -1,0 +1,65 @@
+{%extends "layout.html"%}
+
+{%block title%}Upload Food{%endblock%}
+
+{%block main%}
+<div class="rh-header_container">
+    <h1 class="rh-header">Upload Food</h1>
+</div>
+
+<form class="requestfood" action="/uploadfood" method="POST">
+
+    <div class="input-container">
+        <label>Food name:</label>
+        <input autocomplete="off" type="text" name="name" required>
+    </div>
+
+    <div class="input-container">
+        <label>Keto Status:</label>
+        <select name="keto_id">
+            <option value="1">IsKeto</option>
+            <option value="2">KindaKeto</option>
+            <option value="3">NotKeto</option>
+        </select>
+    </div>
+
+    <div class="input-container">
+        <label>Why is or is not keto:</label>
+        <input autocomplete="off" type="text" name="why" required>
+    </div>
+
+    <div class="input-container">
+        <label>Food Description:</label>
+        <input autocomplete="off" type="text" name="description" required>
+    </div>
+
+    <div class="input-container">
+        <label>Image URL</label>
+        <input autocomplete="off" type="text" name="img_url" required>
+    </div>
+
+    <div class="input-container">
+        <label>Calories</label>
+        <input autocomplete="off" type="text" name="calories" required>
+    </div>
+
+    <div class="input-container">
+        <label>Protein</label>
+        <input autocomplete="off" type="text" name="protein" required>
+    </div>
+    <div class="input-container">
+        <label>Fat</label>
+        <input autocomplete="off" type="text" name="fat" required>
+    </div>
+    <div class="input-container">
+        <label>Carbs</label>
+        <input autocomplete="off" type="text" name="carbs" required>
+    </div>
+
+    <div class="submit-container">
+        <input type="submit" class="submit-button">
+    </div>
+
+</form>
+
+{%endblock%}
